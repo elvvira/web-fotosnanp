@@ -1,0 +1,59 @@
+@use '../mixins/responsive.scss' as *;
+
+.article{
+    &__content{
+       padding: 2rem;
+       padding-bottom: 60px;
+       @include responsive (tablet){
+        padding: 4rem;
+        padding-top: 180px;
+        grid-column: 1/3;
+       }
+       @include responsive (laptop){
+        grid-column: 1/2;
+        }
+       
+       &--reverse{
+        @include responsive (tablet){
+            grid-column: 2/4;
+        }
+        @include responsive (laptop){
+            grid-column: 3/4;
+            }
+       }
+    }
+    &--black{
+        background-color: var(--black);
+        color: var(--white);
+    }
+
+    display: grid;
+
+    @include responsive (tablet){
+        grid-template-columns: repeat(3, 1fr);
+     
+    }
+    @include responsive (laptop){
+        grid-template-columns: (45% 10% 45%);
+    }
+
+    &__image{
+        @include responsive (tablet){
+            grid-column: 3/4;
+            grid-row: 1/2;
+        }
+        @include responsive (laptop){
+            grid-column: 2/4;
+            grid-row: 1/2;
+        }
+        &--reverse{
+            @include responsive (tablet){
+                grid-column: 1/2;
+                grid-row: 1/2;
+            }
+            @include responsive (laptop){
+                grid-column: 1/3;
+                }
+        }
+    }
+}

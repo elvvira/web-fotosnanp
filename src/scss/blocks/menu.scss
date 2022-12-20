@@ -1,0 +1,56 @@
+@use '../mixins/responsive.scss' as *;
+.menu{
+    width: 100vw;
+    height: 240px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    line-height: 2.5rem;
+    font-weight: bold;
+    position: absolute;
+    margin-bottom: 1.5rem;
+    background-color: var(--white);
+    transform: scale(0);
+
+    @include responsive (tablet){
+       transform: scale(1);
+       flex-direction: row;
+       top: -12px;
+       left: 35%;
+       gap: 2rem;
+       height: 100px;
+    }
+    @include responsive (desktop){
+        gap: 4rem;
+        left: 52%;
+    }
+}
+.menu--show{
+    transform: scale(1);
+}
+
+.menu::after{
+    content: '';
+    position: relative;
+    height: 2px;
+    width: 85%;
+    background-color: var(--light-gray);
+    top: -70px;
+    @include responsive (tablet){
+        transform: scale(0);
+     }
+}
+.button--menu{
+    margin-top: 2rem;
+    @include responsive (tablet){
+        margin-top: 0rem;
+    }
+    
+}
+.icon__menu{
+    display: block;
+    @include responsive (tablet){
+        display: none;
+    }
+}
